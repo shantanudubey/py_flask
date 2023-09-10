@@ -30,7 +30,7 @@ def greet_india():
 
 @app.route("/germany/<city>")
 def greet_germany(city):
-    return "Hallo!" + " from " + city
+    return "Hallo!" + " from " + str(city).capitalize()
 
 @app.route("/spain")
 def greet_spain():
@@ -61,9 +61,9 @@ def login():
         user = request.form["nm"]
         return redirect(url_for('success', name = user))
     else:
-        #return render_template('login.html')
-        user = request.args.get("nm")
-        return redirect(url_for('success', name = user))
+        return render_template('login.html')
+        #user = request.args.get("nm")
+        #return redirect(url_for('success', name = user))
     
 
 @app.route('/upload')
